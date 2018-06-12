@@ -1,7 +1,7 @@
 # emojifier_model
 This includes Network Models for Emojifier: Standard RNNs and LSTM. 
 
-## Usage
+## Requirements
 
 In order to get the program to work apart from getting prediction by loading in pre-trained model, we need to have pre-trained GloVE embedding vectors. It could be downloaded from one of the current research in Stanford: https://nlp.stanford.edu/projects/glove/
 
