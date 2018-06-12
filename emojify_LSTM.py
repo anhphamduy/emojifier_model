@@ -1,5 +1,5 @@
 import numpy as np
-from emo_utils import *
+from helpers import *
 import emoji
 from keras import backend as K
 from keras.models import Model
@@ -74,7 +74,7 @@ X_train_indices = sentences_to_indices(X_train, word_to_index, maxLen)
 Y_train_oh = convert_to_one_hot(Y_train, C = NUM_OF_LABELS)
 
 model.fit(X_train_indices, Y_train_oh, epochs = 120, batch_size = 32, shuffle=True)
-model.save('emojify_LSTM.h5')
+model.save('emojifier_LSTM.h5')
 
 X_test_indices = sentences_to_indices(X_test, word_to_index, max_len = maxLen)
 Y_test_oh = convert_to_one_hot(Y_test, C = NUM_OF_LABELS)

@@ -1,7 +1,7 @@
 """ ML libaries independence model """
 
 import numpy as np
-from emo_utils import *
+from helpers import *
 import emoji
 import matplotlib.pyplot as plt
 
