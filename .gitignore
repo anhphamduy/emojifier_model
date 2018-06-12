@@ -1,0 +1,3 @@
+data/
+__pycache__/
+emojify_LSTM.h5
