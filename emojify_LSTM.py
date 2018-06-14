@@ -25,7 +25,7 @@ from keras.initializers import glorot_uniform
 # create model instance
 def EmojiModel(input_shape, word_to_vec_map, word_to_index):
     """
-    Function creating the Emojify-v2 model's graph.
+    Creating a model graph
     
     Arguments:
     input_shape -- shape of the input, usually (max_len,)

@@ -3,6 +3,7 @@ import numpy as np
 import emoji
 from keras.layers.embeddings import Embedding
 
+# read glove vector, take a path
 def read_glove_vecs(glove_file):
     with open(glove_file, 'r') as f:
         words = set()
@@ -28,7 +29,7 @@ def softmax(x):
     e_x = np.exp(x - np.max(x))
     return e_x / e_x.sum()
 
-
+# read csv files which are training data
 def read_csv(filename = 'data/emojify_data.csv'):
     phrase = []
     emoji = []
@@ -74,7 +75,7 @@ emoji_dictionary = {"0": ":heart:",    # :heart: prints a black instead of red h
 
 def label_to_emoji(label):
     """
-    Converts a label (int or string) into the corresponding emoji code (string) ready to be printed
+    Convert the string representation of emoji to the emoji
     """
     return emoji.emojize(emoji_dictionary[str(label)], use_aliases=True)
               
@@ -109,18 +110,16 @@ def sentence_to_avg(sentence, word_to_vec_map, glove_dimension):
     
     return avg
         
-    
-    
 def predict(X, Y, W, b, word_to_vec_map, glove_dimension=200, customized=False):
     """
-    Given X (sentences) and Y (emoji indices), predict emojis and compute the accuracy of your model over the given set.
-    
+    Predict emojis and get the accuracy of the model
+
     Arguments:
     X -- input data containing sentences, numpy array of shape (m, None)
     Y -- labels, containing index of the label emoji, numpy array of shape (m, 1)
     
     Returns:
-    pred -- numpy array of shape (m, 1) with your predictions
+    pred -- numpy array of shape (m, 1) with predictions
     """
     m = X.shape[0]
     pred = np.zeros((m, 1))
@@ -151,8 +150,8 @@ def predict(X, Y, W, b, word_to_vec_map, glove_dimension=200, customized=False):
 
 def sentences_to_indices(X, word_to_index, max_len):
     """
-    Converts an array of sentences (strings) into an array of indices corresponding to words in the sentences.
-    The output shape should be such that it can be given to `Embedding()`
+    Converts an array of sentences into an array of indices corresponding to words in the sentences.
+    The output shape should be such that it can be feed to `Embedding()` layer
     
     Arguments:
     X -- array of sentences (strings), of shape (m, 1)
@@ -187,7 +186,7 @@ def sentences_to_indices(X, word_to_index, max_len):
 
 def pretrained_embedding_layer(word_to_vec_map, word_to_index):
     """
-    Creates a Keras Embedding() layer and loads in pre-trained GloVe 50-dimensional vectors.
+    Creates a Keras Embedding() layer and loads in pre-trained GloVe layer.
     
     Arguments:
     word_to_vec_map -- dictionary mapping words to their GloVe vector representation.
