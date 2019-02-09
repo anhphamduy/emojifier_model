@@ -17,8 +17,8 @@ The model is located in the file named `emojifier_basic.py`. It is vital to note
 
 ##### Model
 
-The model is located in the file named `emojify_LSTM.py`. Since `Keras` library has been used for this model, so it now can save all the parameters into a file which is `emojfier_LSTM.h5`. Now, if you re-train the model by using LSTM, the saved model would be overwritten be the new one.
+The model is located in the file named `emojify_LSTM.py`. Since `Keras` library has been used for this model, it can save all the parameters into a file which is `emojfier_LSTM.h5`. Now, if you re-train the model by using LSTM, the saved model would be overwritten by the new one.
 
 ##### Getting prediction
 
-You can go into `make_prediction.py`. In the `list_of_sentences` list variable, feel free to delete and append new items to test out the application.
+You can go into `make_prediction.py`. In the `list_of_sentences` list variable, feel free to delete and append new items so as to test out the application.
